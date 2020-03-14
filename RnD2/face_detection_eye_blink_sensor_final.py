@@ -1,20 +1,39 @@
 import numpy as np
 import cv2
+import os
+import requests
 #import thread, winsound
 
 face_cascade = cv2.CascadeClassifier('haarcascades\haarcascade_frontalface_default.xml')
 eye_cascade = cv2.CascadeClassifier('haarcascades\haarcascade_eye.xml')
 
-def beep():
-  for i in range(4):
-    winsound.Beep(1500, 250)
+'''
+VideoCapture with a sequence of images only works for images that are numbered consecutively starting at 0. 
+It's intended as a convenience. Since your images aren't numbered like that, it's no longer a convenient to use VideoCapture. 
+Simply use glob to get a list of files, sort it if necessary, and read the frames with imread in a loop.
+'''
 
-cam = cv2.VideoCapture(0)
 count = 0
 iters = 0
+gCount = 0
+
+#cam = cv2.VideoCapture(0)
+
 while(True):
-      ret, cur = cam.read()
+      files = os.listdir('../RnD2/img/')
+      if len(files) == 0:
+        continue
+      elif len(files) == gCount:
+        continue
       
+      gCount += 1
+      
+      cam = cv2.VideoCapture('../RnD2/img/' + files[-1])
+      ret, cur = cam.read()
+
+      #Experimental
+      r = requests.get("http://localhost:5000/upload")
+
       gray = cv2.cvtColor(cur, cv2.COLOR_BGR2GRAY)
       faces = face_cascade.detectMultiScale(gray,scaleFactor = 1.1, minNeighbors=1, minSize=(10,10))
       for (x,y,w,h) in faces:
