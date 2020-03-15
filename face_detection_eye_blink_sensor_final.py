@@ -2,6 +2,7 @@ import numpy as np
 import cv2
 import os
 import requests
+import json
 #import thread, winsound
 
 face_cascade = cv2.CascadeClassifier('haarcascades\haarcascade_frontalface_default.xml')
@@ -18,7 +19,22 @@ iters = 0
 gCount = 0
 
 #cam = cv2.VideoCapture(0)
+def sendPutRequest():
+  payload = {
+	  "id" : "LXklRS2NhL5aWVsvxCGn",
+    "time": "Aaj CSGO khelna hai",
+    "isDrowsy": False
+  }
+  
+  #headers['content-type'] = 'application/json'
 
+  r = requests.put("https://driver-drowsiness.herokuapp.com/addActivity", data = json.dumps(payload), headers={'Content-Type': 'application/json'})
+  #requests.post(url, data=raw_data, headers={'Content-Type': 'application/x-www-form-urlencoded'})
+  print(r)
+
+sendPutRequest()
+
+'''
 while(True):
       files = os.listdir('C://Users//Hrithik Jha//drowsyAPI//img')
 
@@ -33,7 +49,7 @@ while(True):
       ret, cur = cam.read()
 
       #Experimental
-      #r = requests.get("http://localhost:5000/upload")
+      r = requests.get("http://localhost:5000/upload")
 
       gray = cv2.cvtColor(cur, cv2.COLOR_BGR2GRAY)
       faces = face_cascade.detectMultiScale(gray, scaleFactor = 1.1, minNeighbors=1, minSize=(10,10))
@@ -54,9 +70,10 @@ while(True):
             print ("Drowsiness Detected!")
             #thread.start_new_thread(beep,())
           count = 0
-        for (ex,ey,ew,eh) in eyes:
-        	cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh), (0,255,0),2)
-      cv2.imshow('frame', cur)
+        #for (ex,ey,ew,eh) in eyes:
+        #	cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh), (0,255,0),2)
+      #cv2.imshow('frame', cur)
       if cv2.waitKey(1) & 0xFF == ord('q'):
         cv2.destroyAllWindows()
         break
+'''

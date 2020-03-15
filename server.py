@@ -30,5 +30,6 @@ def index():
 
 
 if __name__ == '__main__':
-        p = subprocess.Popen([sys.executable, './RnD2/face_detection_eye_blink_sensor_final.py'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        p = subprocess.Popen([sys.executable, './face_detection_eye_blink_sensor_final.py'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        #os.system('python3 ./RnD2/face_detection_eye_blink_sensor_final.py')
         app.run()
