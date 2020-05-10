@@ -6,7 +6,7 @@ import subprocess
 import sys
 
 def imgName():
-        files = os.listdir('./RnD2/img/')
+        files = os.listdir('./img/')
         return str(len(files) + 1)
 
 
@@ -21,15 +21,18 @@ def hello():
 def index():
         if request.method == 'POST':
                 file1 = request.files['image']
-                nom = "./RnD2/img/" + str(imgName()) + ".png"
+                nom = "./img/" + str(imgName()) + ".png"
                 file1.save(nom)
                 #detectImage(nom)
                 return "File Saved"
         elif request.method == 'GET':
                 print("")
 
+@app.route('/test', methods=['GET'])
+def bruh():
+        return "uno momento bruh"
 
 if __name__ == '__main__':
-        p = subprocess.Popen([sys.executable, './face_detection_eye_blink_sensor_final.py'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        p = subprocess.Popen([sys.executable, './drowsy_detection.py'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         #os.system('python3 ./RnD2/face_detection_eye_blink_sensor_final.py')
         app.run()
