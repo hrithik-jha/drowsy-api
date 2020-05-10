@@ -18,7 +18,11 @@ count = 0
 iters = 0
 gCount = 0
 
-#cam = cv2.VideoCapture(0)
+'''
+ADD ARGUMENT FUNCTIONALITY FOR ID AND TIME STAMP
+'''
+
+# Add arguments for ID and Status
 def sendPutRequest():
   payload = {
 	  "id" : "LXklRS2NhL5aWVsvxCGn",
@@ -32,11 +36,9 @@ def sendPutRequest():
   #requests.post(url, data=raw_data, headers={'Content-Type': 'application/x-www-form-urlencoded'})
   print(r)
 
-sendPutRequest()
-
-'''
 while(True):
-      files = os.listdir('C://Users//Hrithik Jha//drowsyAPI//img')
+      files = os.listdir('./img')
+      status = False
 
       if len(files) == 0:
         continue
@@ -68,12 +70,17 @@ while(True):
           iters = 0
           if count == 0:
             print ("Drowsiness Detected!")
+            status = True
+
             #thread.start_new_thread(beep,())
           count = 0
         #for (ex,ey,ew,eh) in eyes:
         #	cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh), (0,255,0),2)
       #cv2.imshow('frame', cur)
+
+      # Debug sending requests
+      sendPutRequest()
+
       if cv2.waitKey(1) & 0xFF == ord('q'):
         cv2.destroyAllWindows()
         break
-'''
