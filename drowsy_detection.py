@@ -14,10 +14,11 @@ VideoCapture with a sequence of images only works for images that are numbered c
 It's intended as a convenience. Since your images aren't numbered like that, it's no longer a convenient to use VideoCapture. 
 Simply use glob to get a list of files, sort it if necessary, and read the frames with imread in a loop.
 '''
-     
+
+files = os.listdir('./img')
 count = 0
 iters = 0
-lenOfFile = 0
+lenOfFiles = len(files)
 
 '''
 ADD ARGUMENT FUNCTIONALITY FOR ID AND TIME STAMP

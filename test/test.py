@@ -9,7 +9,7 @@ def sendImage(i):
     multipart_form_data = {
         'image': (image_filename, open(i, 'rb')),
     }
-    response = requests.post('http://localhost:5000/upload', files=multipart_form_data)
+    response = requests.post('http://iotproj.pythonanywhere.com/upload', files=multipart_form_data)
     print(response)
 
 def get_image():
