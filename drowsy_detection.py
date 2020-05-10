@@ -17,7 +17,7 @@ Simply use glob to get a list of files, sort it if necessary, and read the frame
      
 count = 0
 iters = 0
-gCount = 0
+lenOfFile = 0
 
 '''
 ADD ARGUMENT FUNCTIONALITY FOR ID AND TIME STAMP
