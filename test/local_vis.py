@@ -30,10 +30,12 @@ def sendPutRequest(idee, timestamp, isDrowsy):
 	  "id" : idee,
     "time": timestamp,
     "isDrowsy": isDrowsy
-  }  
+  }
+  
   #headers['content-type'] = 'application/json'
 
   r = requests.put("https://driver-drowsiness.herokuapp.com/addActivity", data = json.dumps(payload), headers={'Content-Type': 'application/json'})
+  #requests.post(url, data=raw_data, headers={'Content-Type': 'application/x-www-form-urlencoded'})
   print(r)
 
 while(True):
@@ -49,9 +51,12 @@ while(True):
   
   cam = cv2.VideoCapture('./img/' + files[-1])
   ret, cur = cam.read()
+  # Experimental
+  #r = requests.get("http://localhost:5000/test")
   gray = cv2.cvtColor(cur, cv2.COLOR_BGR2GRAY)
   faces = face_cascade.detectMultiScale(gray, scaleFactor = 1.1, minNeighbors=1, minSize=(10,10))
   for (x,y,w,h) in faces:
+  	#cv2.rectangle(cur,(x,y),(x+w,y+h),(255,0,0),2)
     roi_gray = gray[y:y+h,x:x+w]
     roi_color = cur[y:y+h,x:x+w]
     eyes = eye_cascade.detectMultiScale(roi_gray)
@@ -66,8 +71,13 @@ while(True):
       if count == 0:
         print ("Drowsiness Detected!")
         status = True
+        #thread.start_new_thread(beep,())
       count = 0
-  sendPutRequest('LXklRS2NhL5aWVsvxCGn', str(datetime.datetime.now()), status)
+  #sendPutRequest('LXklRS2NhL5aWVsvxCGn', str(datetime.datetime.now()), status)
+    #for (ex,ey,ew,eh) in eyes:
+    #	cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh), (0,255,0),2)
+  #cv2.imshow('frame', cur)
+  # Debug sending requests
 
   if cv2.waitKey(1) & 0xFF == ord('q'):
     cv2.destroyAllWindows()
