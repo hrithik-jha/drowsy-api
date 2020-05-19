@@ -28,9 +28,9 @@ def index():
         elif request.method == 'GET':
                 print("")
 
-@app.route('/test', methods=['GET'])
+@app.route('/test', methods=['GET', 'POST'])
 def bruh():
-        return "uno momento bruh"
+        return "Server accepting requests."
 
 if __name__ == '__main__':
         p = subprocess.Popen([sys.executable, './drowsy_detection.py'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
