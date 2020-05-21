@@ -48,7 +48,7 @@ gremlinpython==3.4.4
 grpcio==1.28.1
 h5py==2.10.0
 html5lib==1.0.1
-httplib2==0.12.0
+httplib2==0.18.0
 -e git+https://github.com/HTTP-APIs/hydra-openapi-parser@e80f75fdaa214f065bd25d97f2236b61d59dc573#egg=hydra_openapi_parser
 -e git+https://github.com/HTTP-APIs/hydra-python-core@42920b6a0676a9c3d8daa24d7bf30ef2b7ec9b29#egg=hydra_python_core
 hydrus==0.2
