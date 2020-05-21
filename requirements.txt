@@ -27,7 +27,7 @@ Cython==0.29.15
 dill==0.2.9
 Django==2.2.10
 dnspython==1.16.0
-ecdsa==0.13
+ecdsa==0.13.3
 emoji==0.5.1
 en-core-web-sm==2.1.0
 enum34==1.1.6
