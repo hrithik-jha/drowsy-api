@@ -9,12 +9,15 @@ def sendImage(i):
     multipart_form_data = {
         'image': (image_filename, open(i, 'rb')),
     }
-    response = requests.post('http://iotproj.pythonanywhere.com/upload', files=multipart_form_data)
+    response = requests.post('http://localhost:5000/upload', files=multipart_form_data)
+        #'http://iotproj.pythonanywhere.com/upload', files=multipart_form_data)
     print(response)
+
 
 def get_image():
     retval, im = camera.read()
     return im
+
 
 def take_image():
     threading.Timer(10.0, take_image).start()
@@ -27,9 +30,10 @@ def take_image():
     cv2.imwrite(file, camera_capture)
     sendImage("./file.png")
 
+
 camera_port = 0
 ramp_frames = 30
 camera = cv2.VideoCapture(camera_port)
-#while(True):
+# while(True):
 take_image()
-#del(camera)
+# del(camera)

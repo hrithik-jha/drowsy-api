@@ -7,7 +7,7 @@ import sys
 
 def imgName():
         files = os.listdir('./img/')
-        return str(len(files) + 1)
+        return str(len(files))
 
 
 app = Flask(__name__)
@@ -23,7 +23,6 @@ def index():
                 file1 = request.files['image']
                 nom = "./img/" + str(imgName()) + ".png"
                 file1.save(nom)
-                #detectImage(nom)
                 return "File Saved"
         elif request.method == 'GET':
                 print("")
