@@ -5,11 +5,13 @@ import threading
 
 
 def sendImage(i):
+    id = '69420bruh'
     image_filename = os.path.basename(i)
     multipart_form_data = {
         'image': (image_filename, open(i, 'rb')),
     }
-    response = requests.post('http://localhost:5000/upload', files=multipart_form_data)
+    URL = 'http://localhost:5000/upload?id=' + id
+    response = requests.post(URL, files=multipart_form_data)
         #'http://iotproj.pythonanywhere.com/upload', files=multipart_form_data)
     print(response)
 
@@ -21,14 +23,14 @@ def get_image():
 
 def take_image():
     threading.Timer(10.0, take_image).start()
-    for i in range(ramp_frames):
-        temp = get_image()
-    print("Taking image...")
-    camera_capture = get_image()
-    file = "./file.png"
+    #for i in range(ramp_frames):
+    #    temp = get_image()
+    #print("Taking image...")
+    #camera_capture = get_image()
+    #file = "./file.png"
 
-    cv2.imwrite(file, camera_capture)
-    sendImage("./file.png")
+    #cv2.imwrite(file, camera_capture)
+    sendImage("../img/0.png")
 
 
 camera_port = 0

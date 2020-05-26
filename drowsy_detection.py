@@ -11,7 +11,6 @@ eye_cascade = cv2.CascadeClassifier('haarcascades\\haarcascade_eye.xml')
 files = os.listdir('./img')
 count = 0
 iters = 0
-lenOfFiles = len(files)
 
 # Sending info to main server
 def sendPutRequest(idee, timestamp, isDrowsy):
@@ -26,14 +25,17 @@ def sendPutRequest(idee, timestamp, isDrowsy):
                      data=json.dumps(payload), headers={'Content-Type': 'application/json'})
     print(r)
 
+lenOfFiles = len(files)
 
 while(True):
     files = os.listdir('./img')
     status = False
     if len(files) == 0:
         continue
-    elif len(files) == lenOfFile:
-        continue
+    #elif len(files) == lenOfFiles:
+    #    continue
+
+    print(files[0])
 
     lenOfFile = len(files)
     status = False
