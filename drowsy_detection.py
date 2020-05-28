@@ -35,7 +35,7 @@ while(True):
     #elif len(files) == lenOfFiles:
     #    continue
 
-    print(files[0])
+    print(files[1])
 
     lenOfFile = len(files)
     status = False
@@ -61,8 +61,12 @@ while(True):
                 print("Drowsiness Detected!")
                 status = True
             count = 0
-    sendPutRequest('LXklRS2NhL5aWVsvxCGn', str(
-        datetime.datetime.now()), status)
+    idee = files[1]
+    idee = idee[::-1]
+    idee = idee[4:24]
+    idee = idee[::-1]
+    print(idee)
+    sendPutRequest(idee, str(datetime.datetime.now()), status)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         cv2.destroyAllWindows()

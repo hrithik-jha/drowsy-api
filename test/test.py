@@ -5,7 +5,7 @@ import threading
 
 
 def sendImage(i):
-    id = '69420bruh'
+    id = 'LXklRS2NhL5aWVsvxCGn'
     image_filename = os.path.basename(i)
     multipart_form_data = {
         'image': (image_filename, open(i, 'rb')),
@@ -23,13 +23,13 @@ def get_image():
 
 def take_image():
     threading.Timer(10.0, take_image).start()
-    #for i in range(ramp_frames):
-    #    temp = get_image()
-    #print("Taking image...")
-    #camera_capture = get_image()
-    #file = "./file.png"
-
-    #cv2.imwrite(file, camera_capture)
+    for i in range(ramp_frames):
+        temp = get_image()
+    print("Taking image...")
+    camera_capture = get_image()
+    file = "./file.png"
+    
+    cv2.imwrite(file, camera_capture)
     sendImage("../img/0.png")
 
 

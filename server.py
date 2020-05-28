@@ -23,7 +23,7 @@ def index():
                 file1 = request.files['image']
                 id = request.args.get('id')
                 print('ID received:', id)
-
+                lenID = len(id)
                 nom = "./img/" + str(imgName()) + "_" + id + ".png"
                 file1.save(nom)
                 return "File Saved"
