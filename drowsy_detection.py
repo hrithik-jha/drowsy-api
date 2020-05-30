@@ -20,7 +20,7 @@ def sendPutRequest(idee, timestamp, isDrowsy):
         "isDrowsy": isDrowsy
     }
     #headers['content-type'] = 'application/json'
-
+    print(payload)
     r = requests.put("https://driver-drowsiness.herokuapp.com/addActivity",
                      data=json.dumps(payload), headers={'Content-Type': 'application/json'})
     print(r)
@@ -35,7 +35,7 @@ while(True):
     elif len(files) == lenOfFiles:
         continue
 
-    print(files[1])
+    print(files[0])
 
     lenOfFile = len(files)
     status = False
@@ -61,7 +61,7 @@ while(True):
                 print("Drowsiness Detected!")
                 status = True
             count = 0
-    idee = files[1]
+    idee = files[0]
     idee = idee[::-1]
     idee = idee[4:24]
     idee = idee[::-1]
