@@ -30,7 +30,7 @@ def take_image():
     file = "./file.png"
     
     cv2.imwrite(file, camera_capture)
-    sendImage("../img/0.png")
+    sendImage("./file.png")
 
 
 camera_port = 0

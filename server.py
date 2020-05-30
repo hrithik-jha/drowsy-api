@@ -4,6 +4,7 @@ import os
 from os import walk 
 import subprocess
 import sys
+import shutil
 
 def imgName():
         files = os.listdir('./img/')
@@ -30,9 +31,11 @@ def index():
         elif request.method == 'GET':
                 print("")
 
-@app.route('/test', methods=['GET', 'POST'])
+@app.route('/delete', methods=['GET'])
 def bruh():
-        return "Server accepting requests."
+        shutil.rmtree('img')
+        os.mkdir('img')
+        return "Deleted img folder contents."
 
 if __name__ == '__main__':
         p = subprocess.Popen([sys.executable, './drowsy_detection.py'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)

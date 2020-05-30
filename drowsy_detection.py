@@ -32,8 +32,8 @@ while(True):
     status = False
     if len(files) == 0:
         continue
-    #elif len(files) == lenOfFiles:
-    #    continue
+    elif len(files) == lenOfFiles:
+        continue
 
     print(files[1])
 
