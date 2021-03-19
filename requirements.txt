@@ -25,7 +25,7 @@ cycler==0.10.0
 cymem==2.0.2
 Cython==0.29.15
 dill==0.2.9
-Django==2.2.10
+Django==2.2.18
 dnspython==1.16.0
 ecdsa==0.13
 emoji==0.5.1
