@@ -124,7 +124,7 @@ python-dateutil==2.7.3
 pytz==2018.5
 pywin32==224
 pywin32-ctypes==0.2.0
-PyYAML==4.2b1
+PyYAML==5.4
 qt4reactor==1.6
 Quandl==3.4.1
 rake-nltk==1.0.4
