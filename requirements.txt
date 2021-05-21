@@ -145,7 +145,7 @@ speedtest-cli==2.1.2
 SQLAlchemy==1.2.10
 srsly==0.0.5
 tensorboard==2.0.2
-tensorflow==2.0.0
+tensorflow==2.5.0
 tensorflow-estimator==2.0.1
 termcolor==1.1.0
 textblob==0.15.2
