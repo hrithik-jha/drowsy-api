@@ -155,7 +155,7 @@ tornado==4.5.3
 totp==1.1.2
 tqdm==4.31.1
 Twisted==18.9.0
-urllib3==1.25.9
+urllib3==1.26.5
 virtualenv==15.1.0
 virtualenvwrapper-win==1.2.5
 wasabi==0.2.0
