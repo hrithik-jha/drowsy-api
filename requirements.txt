@@ -54,7 +54,7 @@ httplib2==0.18.0
 hydrus==0.2
 hyperlink==18.0.0
 idna==2.9
-impacket==0.9.18
+impacket==0.9.23
 imutils==0.5.3
 incremental==17.5.0
 inflection==0.3.1
