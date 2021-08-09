@@ -122,7 +122,7 @@ pyotp==2.2.7
 pyparsing==2.2.0
 python-dateutil==2.7.3
 pytz==2018.5
-pywin32==224
+pywin32==301
 pywin32-ctypes==0.2.0
 PyYAML==4.2b1
 qt4reactor==1.6
