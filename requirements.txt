@@ -90,7 +90,7 @@ numpy==1.18.4
 oauthlib==3.1.0
 odict==1.6.2
 onetimepass==1.0.1
-opencv-python==4.1.1.26
+opencv-python==4.2.0.32
 opt-einsum==3.2.1
 packaging==17.1
 pandas==0.23.0
