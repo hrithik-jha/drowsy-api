@@ -99,7 +99,7 @@ pathlib==1.0.1
 pefile==2018.8.8
 pep8==1.7.1
 persisting-theory==0.2.1
-Pillow==5.1.0
+Pillow==9.0.1
 plac==0.9.6
 preshed==2.0.1
 protobuf==3.11.3
