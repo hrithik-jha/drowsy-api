@@ -102,7 +102,7 @@ persisting-theory==0.2.1
 Pillow==5.1.0
 plac==0.9.6
 preshed==2.0.1
-protobuf==3.11.3
+protobuf==3.18.3
 psutil==5.6.6
 psycopg2==2.7.5
 pyasn1==0.4.8
